@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Real Estate Manager</string>
+    <string name="app_name">RealEstateManager</string>
+    <string name="title_activity_view_realty">ViewRealty</string>
+    <string name="title_activity_main">REM</string>
 </resources>
