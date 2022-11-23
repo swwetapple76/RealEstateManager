@@ -1,5 +1,25 @@
 <resources>
-    <string name="app_name">RealEstateManager</string>
-    <string name="title_activity_view_realty">ViewRealty</string>
-    <string name="title_activity_main">REM</string>
+    <string name="app_name">Real Estate Manager</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_photo_viewer">PhotoViewerActivity</string>
+    <string name="media">Media</string>
+    <string name="description">Description</string>
+    <string name="surface">Surface</string>
+    <string name="rooms">Rooms</string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="bedrooms">Bedrooms</string>
+    <string name="location">Location</string>
+    <string name="content_description_mini_map_preview">Mini Map Preview</string>
+    <string name="content_description_open_left_list">Open Left List</string>
+    <string name="content_description_add_real_estate">Add Real Estate</string>
+    <string name="content_description_edit_current_selected_estate">Edit current selected Estate</string>
+    <string name="content_description_debug_button">Debug button</string>
+    <string name="title_activity_converter">ConverterActivity</string>
+    <string name="content_description_return_to_home_screen">Return to Home screen</string>
+    <string name="title_activity_editestate">EditEstateActivity</string>
+    <string name="point_of_interest">Point of Interest</string>
+    <string name="agent">Agent</string>
+    <string name="title_activity_simulator">SimulatorActivity</string>
+    <string name="district">District</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
