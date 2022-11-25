@@ -7,7 +7,7 @@ object MapUtils {
 		width: Int = 400,
 		height: Int = 400,
 		zoom: Int = 15,
-		localisation: String = "-74.005157,40.710785",
+		localisation: String = "40.712784 ,-74.005941",
 		apiKey: String = BuildConfig.MAPS_API_KEY,
 	): String {
 		return "https://maps.googleapis.com/maps/api/staticmap?" +
