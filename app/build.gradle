@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-parcelize'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+
 
 }
 
@@ -28,8 +30,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+//            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -86,10 +88,13 @@ dependencies {
 
     // Google Map
     implementation "com.google.android.libraries.maps:maps:3.1.0-beta"
-
     implementation "com.google.maps.android:maps-v3-ktx:2.2.0"
     implementation "androidx.fragment:fragment-ktx:1.5.4"
     implementation 'com.android.volley:volley:1.2.1'
+
+    //Google services
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // Permission
     implementation "com.google.accompanist:accompanist-permissions:0.18.0"
