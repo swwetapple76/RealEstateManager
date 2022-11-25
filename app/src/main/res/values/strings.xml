@@ -20,6 +20,7 @@
     <string name="point_of_interest">Point of Interest</string>
     <string name="agent">Agent</string>
     <string name="title_activity_simulator">SimulatorActivity</string>
+    <string name="mensuality">Mensuality</string>
     <string name="district">District</string>
     <string name="title_activity_main">MainActivity</string>
 </resources>
