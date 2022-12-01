@@ -19,8 +19,67 @@
     <string name="title_activity_editestate">EditEstateActivity</string>
     <string name="point_of_interest">Point of Interest</string>
     <string name="agent">Agent</string>
-    <string name="title_activity_simulator">SimulatorActivity</string>
-    <string name="mensuality">Mensuality</string>
+    <string name="monthly.">Monthly.</string>
     <string name="district">District</string>
     <string name="title_activity_main">MainActivity</string>
+
+    //simulator
+    <string name="title_activity_simulator">SimulatorActivity</string>
+     <string name="content_description_icon" >Icon</string>
+    <string name="bundle_is_annuity_loan_type" >isAnnuityLoanType</string>
+
+    <string name="title_version">Version:</string>
+    <string name="title_info">Info</string>
+
+    <string name="action_up">Up</string>
+    <string name="action_select">Select</string>
+    <string name="action_back">Back</string>
+    <string name="action_calculate">Calculate</string>
+
+    <string name="error_add_data">Enter the missing data</string>
+
+
+    <!-- Main Activity-->
+    <string name="title_select_loan_type">Select Loan Type</string>
+    <string name="title_differential">Differential</string>
+    <string name="title_annuity">Annuity</string>
+
+    <string name="description_annuity">The loan amount for payment is divided into unequal parts, and the interest rate is charged on the balance of the loan body. The amount of the contribution remains unchanged</string>
+    <string name="description_differential">The loan amount is evenly divided for the entire term, and interest is charged monthly on the remaining amount of money. The amount of the contribution in the graph is reflected in unequal values</string>
+
+    <string name="hint_annuity">Hint: More commonly used by banks</string>
+
+
+    <!-- Credit Details Activity-->
+    <string name="title_credit_type">Type of credit: </string>
+    <string name="title_optional">Optional</string>
+    <string name="title_loan_amount">Loan Amount</string>
+    <string name="title_payout_amount">Payout Amount</string>
+    <string name="title_interest_gross">Gross Interest</string>
+    <string name="title_interest_net">Net Interest</string>
+    <string name="title_payment_schedule">Payment Schedule</string>
+    <string name="title_period">Period</string>
+    <string name="title_months">months</string>
+
+    <string name="hint_loan_amount">Loan amount (c.u.)</string>
+    <string name="hint_interest">Interest (%)</string>
+    <string name="hint_period">Period (months)</string>
+    <string name="hint_grace_period">Grace Period (months)</string>
+    <string name="hint_initial_fee">Initial Fee (%)</string>
+
+
+
+    <!-- Result Layout-->
+    <string name="title_month">Month</string>
+    <string name="title_debt">Main Debt</string>
+    <string name="title_interest">Interest Rate</string>
+    <string name="title_total_payment">Total Payment</string>
+    <string name="title_balance">Balance</string>
+    <string name="title_total">Total</string>
+
+
+    <!-- Info-->
+    <string name="title_note">Note</string>
+    <string name="description_note">The calculation is preliminary. The exact amount of the monthly payment will be determined by the Bank based on the results of consideration of the application</string>
+
 </resources>

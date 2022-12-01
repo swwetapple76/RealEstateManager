@@ -31,9 +31,9 @@ fun EtateListFilter(top: Dp, viewmodel: HomeViewModel, closeFilterView: () -> (U
 		.fillMaxWidth()
 		.verticalScroll(rememberScrollState())
 	) {
-		// ------------
+
 		// Remembers
-		// ------------
+
 		var estateFrom by remember {
 			mutableStateOf(viewmodel.getFilterSetting().from,
 				policy = neverEqualPolicy())
@@ -58,9 +58,9 @@ fun EtateListFilter(top: Dp, viewmodel: HomeViewModel, closeFilterView: () -> (U
 				policy = neverEqualPolicy())
 		}
 
-		// ------------
+
 		// Buttons
-		// ------------
+
 		Row(Modifier.fillMaxWidth())
 		{
 			Button(onClick = {

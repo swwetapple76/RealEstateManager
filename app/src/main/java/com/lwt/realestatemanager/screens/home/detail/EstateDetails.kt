@@ -182,9 +182,9 @@ fun EstateDetails(estate: Estate) {
 				title = stringResource(R.string.point_of_interest))
 		}
 
-			// ----------------------------
+
 		// Column 3 - Minimap
-		// ----------------------------
+
 		if (!small) // If DPI width is big
 			Row(
 				modifier = Modifier

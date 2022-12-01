@@ -16,9 +16,9 @@ import java.util.*
 
 @ExperimentalCoilApi
 object ComposerUtils {
-	// --------------------------------------------
+
 	// Fix register for Activity not sending result
-	// --------------------------------------------
+
 	@Composable
 	fun <I, O> registerForActivityResult(
 		contract: ActivityResultContract<I, O>,
@@ -53,18 +53,18 @@ object ComposerUtils {
 		return returnedLauncher
 	}
 
-	// --------------------------------------------
+
 	// Fix register for Activity not sending result
-	// --------------------------------------------
+
 	@Composable
 	fun getScreenWidthInfo(): Pair<Boolean, Int> {
 		val configuration = LocalConfiguration.current
 		return Pair(configuration.screenWidthDp <= 450, configuration.screenWidthDp)
 	}
 
-	// ------------------------
+
 	// Matrix to get Grayscale image
-	// ------------------------
+
 	private val grayScaleMatrix = ColorMatrix(
 		floatArrayOf(
 			0.33f, 0.33f, 0.33f, 0f, 0f,

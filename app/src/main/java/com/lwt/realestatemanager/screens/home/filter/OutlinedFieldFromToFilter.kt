@@ -25,9 +25,9 @@ fun OutlinedFieldFromTo(
 ) {
 	Row() {
 		when {
-			// ------------------------------
+
 			// DATE
-			// ------------------------------
+
 			propsContainer.dateProps != null -> {
 				OutlinedDatePickerButton(
 					title = "From",
@@ -51,7 +51,7 @@ fun OutlinedFieldFromTo(
 						.weight(1.0f),
 				)
 			}
-			// ------------------------------
+
 			// INT
 			// ------------------------------
 			propsContainer.intProps != null -> {

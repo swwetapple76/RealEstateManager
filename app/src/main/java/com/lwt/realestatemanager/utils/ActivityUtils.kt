@@ -10,9 +10,9 @@ import com.lwt.realestatemanager.screens.photoviewer.PhotoViewerActivity
 import com.lwt.realestatemanager.screens.simulator.SimulatorActivity
 
 object ActivityUtils {
-	// --------------------------------------
+
 	// Easy Activity Open
-	// --------------------------------------
+
 	@ExperimentalCoilApi
 	fun openPhotoViewerActivity(context: Context, photo: Photo) {
 		val intent = Intent(context, PhotoViewerActivity::class.java).apply {

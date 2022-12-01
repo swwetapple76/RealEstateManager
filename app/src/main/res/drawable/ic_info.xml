@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path
+        android:fillColor="#EFEFEF"
+        android:fillType="evenOdd"
+        android:pathData="M4.17 50c0 25.31 20.52 45.83 45.83 45.83S95.83 75.31 95.83 50S75.31 4.17 50 4.17S4.17 24.69 4.17 50zm83.33 0c0 20.71-16.79 37.5-37.5 37.5S12.5 70.71 12.5 50S29.29 12.5 50 12.5S87.5 29.29 87.5 50zm-33.32 8.33h4.17v8.33H41.68v-8.33h4.17v-8.34h-4.17v-8.33h12.5v16.67zm-0.01-25c0 2.3-1.87 4.16-4.17 4.16s-4.17-1.86-4.17-4.16s1.87-4.17 4.17-4.17s4.17 1.87 4.17 4.17z"/>
+</vector>
