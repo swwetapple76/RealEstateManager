@@ -1,9 +1,9 @@
 package com.lwt.realestatemanager.screens.simulator
 
 import androidx.lifecycle.ViewModel
-import com.lwt.realestatemanager.model.simulator.Loan
-import com.lwt.realestatemanager.model.simulator.LoanResult
-import com.lwt.realestatemanager.model.simulator.MonthlyPayment
+import com.lwt.realestatemanager.screens.home.simulator.Loan
+import com.lwt.realestatemanager.screens.home.simulator.LoanResult
+import com.lwt.realestatemanager.screens.home.simulator.MonthlyPayment
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.math.pow

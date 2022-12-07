@@ -1,5 +1,5 @@
 
-package com.lwt.realestatemanager.model.simulator
+package com.lwt.realestatemanager.screens.home.simulator
 
 /**Preliminary loan data model*/
 data class Loan(

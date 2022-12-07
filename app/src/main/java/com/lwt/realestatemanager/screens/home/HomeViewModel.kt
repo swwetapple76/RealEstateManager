@@ -15,16 +15,16 @@ import com.lwt.realestatemanager.screens.home.filter.FilterUtils
 import kotlin.concurrent.thread
 
 class HomeViewModel : ViewModel() {
-	// ----------------------------
+	
 	// Lazy Database Init
-	// ----------------------------
+	
 	fun initDatabase(context: Context) {
 		EstateRepository.db = EstateDatabase.getInstance(context)
 	}
 
-	// ----------------------------
+	
 	// LiveData
-	// ----------------------------
+	
 	private val estateList: MutableLiveData<List<Estate>?> = MutableLiveData(listOf())
 
 	@Composable
@@ -55,9 +55,9 @@ class HomeViewModel : ViewModel() {
 		return filterSetting.value ?: FilterSettings.Default.copy()
 	}
 
-	// ----------------------------
+	
 	// Set/Get Selected Estate
-	// ----------------------------
+	
 	fun setSelectedEstate(uid: Long) {
 		estateSelected.postValue(uid)
 	}
@@ -76,14 +76,14 @@ class HomeViewModel : ViewModel() {
 		return Estate()
 	}
 
-	// ----------------------------------------------------------------------------------------------------
+
 	// DATABASE METHODS
-	// ----------------------------
+	
 
 
-	// ----------------------------
+	
 	// DB Pull Data
-	// ----------------------------
+	
 	fun updateEstateListFromDB() {
 		thread {
 			val list = EstateRepository.db?.estateDao()?.getAll()?.let { filterSetting.value?.let { it1 -> FilterUtils.filterList(it, it1) } }
@@ -91,9 +91,9 @@ class HomeViewModel : ViewModel() {
 		}
 	}
 
-	// ----------------------------
+	
 	// Update
-	// ----------------------------
+	
 	fun addEstate(estate: Estate) {
 		EstateRepository.callGeocoderService(estate.address) { lat, lng ->
 			estate.latitude = lat
@@ -114,9 +114,9 @@ class HomeViewModel : ViewModel() {
 		}
 	}
 
-	// ----------------------------
+	
 	// Update
-	// ----------------------------
+	
 	fun updateEstate(estate: Estate) {
 		EstateRepository.callGeocoderService(estate.address) { lat, lng ->
 			estate.latitude = lat
@@ -128,9 +128,9 @@ class HomeViewModel : ViewModel() {
 		}
 	}
 
-	// ----------------------------
+	
 	// Delete
-	// ----------------------------
+	
 	fun deleteEstate(uid: Long) {
 		thread {
 			EstateRepository.db?.estateDao()?.delete(uid)

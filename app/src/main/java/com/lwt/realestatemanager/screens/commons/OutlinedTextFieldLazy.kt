@@ -1,6 +1,7 @@
-package com.lwt.realestatemanager.screens.editestate
+package com.lwt.realestatemanager.screens.commons
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -44,8 +45,11 @@ fun OutlinedTextFieldLazy(
 		label = labelLambda,
 		placeholder = placeholderLambda,
 		keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+
 		onValueChange = {
 			onValueChange(it)
 		},
+
 		modifier = modifier)
+
 }

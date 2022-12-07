@@ -24,153 +24,232 @@ import coil.annotation.ExperimentalCoilApi
 import com.lwt.realestatemanager.R
 import com.lwt.realestatemanager.model.Estate
 import com.lwt.realestatemanager.screens.commons.OutlinedDropDown
+import com.lwt.realestatemanager.screens.commons.OutlinedTextFieldLazy
 import com.lwt.realestatemanager.screens.commons.TopBarReturn
 import com.lwt.realestatemanager.ui.theme.RealEstateManagerTheme
+import java.text.NumberFormat
+import java.util.*
 
 
 @ExperimentalComposeUiApi
 @ExperimentalCoilApi
 class EditEstateActivity : ComponentActivity() {
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		val title = this.intent.extras?.getString("title") ?: "Estate Edit"
-		setContent {
-			var estate by remember { mutableStateOf(this.intent.extras?.getParcelable<Estate>("estate")!!, policy = neverEqualPolicy()) }
-			RealEstateManagerTheme {
-				TopBarReturn(this, title) {
-					Box {
-						EditEstateMain(estate, onEstateChange = { estate = it })
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val title = this.intent.extras?.getString("title") ?: "Estate Edit"
+        setContent {
+            var estate by remember {
+                mutableStateOf(this.intent.extras?.getParcelable<Estate>("estate")!!,
+                    policy = neverEqualPolicy())
+            }
+            RealEstateManagerTheme {
+                TopBarReturn(this, title) {
+                    Box {
+                        EditEstateMain(estate, onEstateChange = { estate = it })
 
-						// ----------------------------
-						// Save Float Button
-						// ----------------------------
-						FloatingActionButton(
-							modifier = Modifier
+
+                        // Save Float Button
+
+                        FloatingActionButton(
+                            modifier = Modifier
 								.align(Alignment.BottomEnd)
 								.padding(8.dp),
-							onClick = {
-								val result = Intent().putExtra("estateReturn",
-									estate)
-								setResult(RESULT_OK, result)
-								finish()
-							}) {
-							Icon(Icons.Filled.Save, "Save current Estate", tint = Color.White)
-						}
-					}
-				}
-			}
-		}
-	}
+                            onClick = {
+                                val result = Intent().putExtra("estateReturn",
+                                    estate)
+                                setResult(RESULT_OK, result)
+                                finish()
+                            }) {
+                            Icon(Icons.Filled.Save, "Save current Estate", tint = Color.White)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @ExperimentalComposeUiApi
 @ExperimentalCoilApi
 @Composable
 private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
-	val configuration = LocalConfiguration.current
-	val small = configuration.screenWidthDp <= 450
+    val configuration = LocalConfiguration.current
+    val small = configuration.screenWidthDp <= 450
 
-	Column(Modifier
-		.padding(16.dp)
-		.verticalScroll(rememberScrollState())) {
+    Column(Modifier
+        .padding(16.dp)
+        .verticalScroll(rememberScrollState())) {
 
-		// ----------------------------
-		// Photo List
-		// ----------------------------
-		Text(
-			text = stringResource(R.string.media),
-			style = MaterialTheme.typography.h5,
-			fontWeight = FontWeight.Bold
-		)
-		EditEstatePhotoList(estate, onEstateChange = { onEstateChange(it) })
-		OutlinedDropDown(label = "Type", currentSelected = estate.type) {
-			estate.type = it
-		}
-		// ----------------------------
-		// Description
-		// ----------------------------
-		OutlinedTextField(
-			label = { Text(stringResource(R.string.description)) },
-			value = estate.description,
-			onValueChange = { estate.description = it; onEstateChange(estate) },
-			modifier = Modifier
-				.padding(top = 16.dp)
-				.fillMaxWidth()
-		)
-		OutlinedTextField(
-			label = { Text(stringResource(R.string.district)) },
-			value = estate.district,
-			onValueChange = { estate.district = it; onEstateChange(estate) },
-			modifier = Modifier
-				.padding(top = 16.dp)
-				.fillMaxWidth()
-		)
-		Spacer(modifier = Modifier.height(32.dp))
-		Row(modifier = Modifier.fillMaxSize()) {
-			// ----------------------------
-			// First Column
-			// ----------------------------
-			Column(Modifier
-				.weight(1.0f)
-				.padding(8.dp)) {
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.Face,
-					title = stringResource(R.string.surface),
-					value = estate.surface.toString(),
-					keyboardType = KeyboardType.Number) {
-					val new = it.toIntOrNull()
-					if (new != null)
-						estate.surface = new
-					onEstateChange(estate)
-				}
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.Person,
-					title = stringResource(R.string.rooms),
-					value = estate.rooms.toString(),
-					keyboardType = KeyboardType.Number) {
-					val new = it.toIntOrNull()
-					if (new != null)
-						estate.rooms = new
-					onEstateChange(estate)
-				}
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.Info,
-					title = stringResource(R.string.bathrooms),
-					value = estate.bathrooms.toString(),
-					keyboardType = KeyboardType.Number) {
-					val new = it.toIntOrNull()
-					if (new != null)
-						estate.bathrooms = new
-					onEstateChange(estate)
-				}
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.AccountBox,
-					title = stringResource(R.string.bedrooms),
-					value = estate.bedrooms.toString(),
-					keyboardType = KeyboardType.Number) {
-					val new = it.toIntOrNull()
-					if (new != null)
-						estate.bedrooms = new
-					onEstateChange(estate)
-				}
-			}
 
-			// ----------------------------
-			// Second Column
-			// ----------------------------
-			Column(Modifier
-				.weight(1.0f)
-				.padding(8.dp)) {
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.LocationOn, title = stringResource(R.string.location), value = estate.address) {
-					estate.address = it
-					onEstateChange(estate)
-				}
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.Info, title = stringResource(R.string.point_of_interest), value = estate.interest) {
-					estate.interest = it
-					onEstateChange(estate)
-				}
-				OutlinedTextFieldLazy(leadingIcon = Icons.Default.ManageAccounts, title = stringResource(R.string.agent), value = estate.agent) {
-					estate.agent = it
-					onEstateChange(estate)
-				}
-			}
-		}
-	}
+        // Photo List
+
+        Text(
+            text = stringResource(R.string.media),
+            style = MaterialTheme.typography.h5,
+            fontWeight = FontWeight.Bold
+        )
+        EditEstatePhotoList(estate, onEstateChange = { onEstateChange(it) })
+
+        // Realty detail
+
+        Row(modifier = Modifier.fillMaxSize()) {
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedDropDown(label = "Type", currentSelected = estate.type) {
+                    estate.type = it
+                }
+            }
+
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextField(
+                    label = { Text(stringResource(R.string.district)) },
+                    value = estate.district,
+                    onValueChange = { estate.district = it; onEstateChange(estate) },
+
+                    )
+            }
+        }
+
+        Row(modifier = Modifier.fillMaxSize()) {
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextFieldLazy(leadingIcon = Icons.Default.SettingsOverscan,
+                    title = stringResource(R.string.surface),
+                    value = estate.surface.toString(),
+                    keyboardType = KeyboardType.Number) {
+                    val new = it.toIntOrNull()
+                    if (new != null)
+                        estate.surface = new
+                    onEstateChange(estate)
+                }
+            }
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextFieldLazy(leadingIcon = Icons.Default.ManageAccounts,
+                    title = stringResource(R.string.agent),
+                    value = estate.agent) {
+                    estate.agent = it
+                    onEstateChange(estate)
+                }
+            }
+
+        }
+        Row(modifier = Modifier.fillMaxSize()) {
+
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextFieldLazy(leadingIcon = Icons.Default.Home,
+                    title = stringResource(R.string.rooms),
+                    value = estate.rooms.toString(),
+                    keyboardType = KeyboardType.Number) {
+                    val new = it.toIntOrNull()
+                    if (new != null)
+                        estate.rooms = new
+                    onEstateChange(estate)
+                }
+            }
+
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextFieldLazy(leadingIcon = Icons.Default.BedroomParent,
+                    title = stringResource(R.string.bedrooms),
+                    value = estate.bedrooms.toString(),
+                    keyboardType = KeyboardType.Number) {
+                    val new = it.toIntOrNull()
+                    if (new != null)
+                        estate.bedrooms = new
+                    onEstateChange(estate)
+                }
+            }
+            Column(Modifier
+                .weight(1.0f)
+                .fillMaxWidth()
+                .padding(8.dp)) {
+                OutlinedTextFieldLazy(leadingIcon = Icons.Default.Bathtub,
+                    title = stringResource(R.string.bathrooms),
+                    value = estate.bathrooms.toString(),
+                    keyboardType = KeyboardType.Number) {
+                    val new = it.toIntOrNull()
+                    if (new != null)
+                        estate.bathrooms = new
+                    onEstateChange(estate)
+                }
+            }
+        }
+        OutlinedTextField(
+            label = { Text(stringResource(R.string.description)) },
+            value = estate.description,
+            onValueChange = { estate.description = it; onEstateChange(estate) },
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .fillMaxWidth()
+        )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+
+        ) {
+            OutlinedTextFieldLazy(leadingIcon = Icons.Default.Place,
+                title = stringResource(R.string.location),
+                value = estate.address) {
+                estate.address = it
+                onEstateChange(estate)
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+
+        ) {
+            OutlinedTextFieldLazy(leadingIcon = Icons.Default.Interests,
+                title = stringResource(R.string.point_of_interest),
+                value = estate.interest) {
+                estate.interest = it
+                onEstateChange(estate)
+            }
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+
+        ) {
+            val format: NumberFormat = NumberFormat.getCurrencyInstance()
+            format.maximumFractionDigits = 0
+            format.currency = Currency.getInstance("USD")
+            OutlinedTextFieldLazy(
+                leadingIcon = Icons.Default.Paid,
+                title = stringResource(R.string.price),
+                value = estate.price.toString(),
+                keyboardType = KeyboardType.Number) {
+                val new = it.toIntOrNull()
+                if (new != null)
+                    estate.price = new
+                format.format(estate.price)
+                onEstateChange(estate)
+
+            }
+
+
+        }
+
+    }
 }
+
+
+

@@ -15,7 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lwt.realestatemanager.screens.simulator.SharedViewModel
-import com.lwt.realestatemanager.model.simulator.MonthlyPayment
+import com.lwt.realestatemanager.screens.home.simulator.MonthlyPayment
 import com.lwt.realestatemanager.ui.theme.RealEstateManagerTheme
 
 @Preview(

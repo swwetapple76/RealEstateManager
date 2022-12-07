@@ -43,9 +43,9 @@ class HomeActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		// ----------------------------
+
 		// ViewModels
-		// ----------------------------
+
 		val viewModel: HomeViewModel by viewModels()
 		viewModel.initDatabase(applicationContext)
 		val networkViewModel: NetworkStatusViewModel by lazy {
@@ -55,25 +55,30 @@ class HomeActivity : ComponentActivity() {
 					//override
 					override fun <T : ViewModel> create(modelClass: Class<T>): T {
 						val networkStatusTracker = NetworkStatusTracker(this@HomeActivity)
-						@Suppress("UNCHECKED_CAST") return NetworkStatusViewModel(networkStatusTracker) as T
+						@Suppress("UNCHECKED_CAST") return NetworkStatusViewModel(
+							networkStatusTracker) as T
 					}
 				}
 			).get(NetworkStatusViewModel::class.java)
 		}
 
 		setContent {
-			// ----------------------------
+
 			// Remember / Var
-			// ----------------------------
+
 			val (small) = getScreenWidthInfo()
 			var openLeftDrawer by remember { mutableStateOf(true) }
 			val estateList by viewModel.rememberEstateList()
 			viewModel.updateEstateListFromDB()
 			val estateSelected by viewModel.rememberEstateSelected()
 			val networkStatusState = networkViewModel.networkState.observeAsState()
-			viewModel.ObserveEstateSelected(LocalLifecycleOwner.current) { if (small) openLeftDrawer = false }
+			viewModel.ObserveEstateSelected(LocalLifecycleOwner.current) {
+				if (small) openLeftDrawer = false
+			}
 			var openMap by remember { mutableStateOf(false) }
 			RealEstateManagerTheme {
+
+
 				HomeTopBar(
 					viewModel = viewModel,
 					listEstate = estateList,
@@ -86,9 +91,9 @@ class HomeActivity : ComponentActivity() {
 					},
 				) {
 					when {
-						// ----------------------------
+
 						// Show Map
-						// ----------------------------
+
 						openMap -> {
 							estateList?.let {
 								EstateMap(list = it, setSelectedEstate = { it1 ->
@@ -98,9 +103,9 @@ class HomeActivity : ComponentActivity() {
 							}
 						}
 
-						// ----------------------------
+
 						// Message Filter
-						// ----------------------------
+
 						estateList.isNullOrEmpty() -> {
 							Column(
 								modifier = Modifier.fillMaxSize(),
@@ -117,24 +122,26 @@ class HomeActivity : ComponentActivity() {
 								}
 							}
 						}
-						// ----------------------------
+
 						// List and Details
-						// ----------------------------
+
 						else -> {
 							estateList?.let { estateListChecked ->
 								Row(Modifier.fillMaxSize()) {
 									val pair = estateSelected ?: 0
-									// -------------------------
+
 									// Estate List
-									// -------------------------
-									AnimatedVisibility(visible = openLeftDrawer, enter = expandHorizontally(), exit = shrinkHorizontally()) {
+
+									AnimatedVisibility(visible = openLeftDrawer,
+										enter = expandHorizontally(),
+										exit = shrinkHorizontally()) {
 										EstateList(estateListChecked, pair, viewModel)
 									}
 									Column()
 									{
-										// -------------------------
+
 										// Network Status Message
-										// -------------------------
+
 										AnimatedVisibility(
 											visible = networkStatusState.value == NetworkStatus.Unavailable,
 											enter = expandVertically(),
@@ -142,7 +149,8 @@ class HomeActivity : ComponentActivity() {
 										) {
 											Box()
 											{
-												Surface(color = Color(ColorUtils.HSLToColor(floatArrayOf(0.0f, 0.75f, 0.5f)))) {
+												Surface(color = Color(ColorUtils.HSLToColor(
+													floatArrayOf(0.0f, 0.75f, 0.5f)))) {
 													Text(text = "No Internet Connection, Viewing Local Copy",
 														color = Color.White,
 														textAlign = TextAlign.Center,
@@ -156,9 +164,9 @@ class HomeActivity : ComponentActivity() {
 											}
 										}
 
-										// -------------------------
+
 										// Estate Details
-										// -------------------------
+
 										EstateDetails(viewModel.getSelectedEstate())
 									}
 								}
@@ -168,12 +176,14 @@ class HomeActivity : ComponentActivity() {
 				}
 			}
 
-			// ----------------------------
+
 			// Debug Build Only
-			// ----------------------------
+
 			if (BuildConfig.DEBUG) {
 				HomeDebug(viewModel = viewModel)
 			}
 		}
 	}
+
+
 }

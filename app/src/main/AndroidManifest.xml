@@ -27,6 +27,7 @@
             android:theme="@style/EstateTheme.Transparent" />
         <activity
             android:name=".screens.converter.ConverterActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:label="@string/title_activity_converter" />
         <activity
@@ -35,10 +36,12 @@
             android:label="@string/title_activity_simulator" />
         <activity
             android:name=".screens.editestate.EditEstateActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:label="@string/title_activity_editestate" />
         <activity
             android:name=".screens.home.HomeActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:label="@string/title_activity_home">
             <intent-filter>

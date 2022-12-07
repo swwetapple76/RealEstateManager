@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Real Estate Manager</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">REM</string>
     <string name="title_activity_photo_viewer">PhotoViewerActivity</string>
     <string name="media">Media</string>
     <string name="description">Description</string>
@@ -17,16 +17,17 @@
     <string name="title_activity_converter">ConverterActivity</string>
     <string name="content_description_return_to_home_screen">Return to Home screen</string>
     <string name="title_activity_editestate">EditEstateActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
     <string name="point_of_interest">Point of Interest</string>
     <string name="agent">Agent</string>
     <string name="monthly.">Monthly.</string>
     <string name="district">District</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">LoginActivity</string>
 
     //simulator
     <string name="title_activity_simulator">SimulatorActivity</string>
-     <string name="content_description_icon" >Icon</string>
-    <string name="bundle_is_annuity_loan_type" >isAnnuityLoanType</string>
+    <string name="content_description_icon">Icon</string>
+    <string name="bundle_is_annuity_loan_type">isAnnuityLoanType</string>
 
     <string name="title_version">Version:</string>
     <string name="title_info">Info</string>
@@ -68,7 +69,6 @@
     <string name="hint_initial_fee">Initial Fee (%)</string>
 
 
-
     <!-- Result Layout-->
     <string name="title_month">Month</string>
     <string name="title_debt">Main Debt</string>
@@ -81,5 +81,6 @@
     <!-- Info-->
     <string name="title_note">Note</string>
     <string name="description_note">The calculation is preliminary. The exact amount of the monthly payment will be determined by the Bank based on the results of consideration of the application</string>
+    <string name="price">Price</string>
 
 </resources>
