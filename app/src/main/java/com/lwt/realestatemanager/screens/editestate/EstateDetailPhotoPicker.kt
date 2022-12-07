@@ -101,9 +101,12 @@ fun EditEstatePhotoPicker(onPhotoSelected: (Photo) -> (Unit)) {
 					modifier = Modifier
 						.fillMaxWidth()
 						.padding(8.dp)
+
 				)
+				Spacer(modifier = Modifier.height(10.dp))
 			}
 		},
+
 		confirmButton = {
 			Button(
 				onClick = {
