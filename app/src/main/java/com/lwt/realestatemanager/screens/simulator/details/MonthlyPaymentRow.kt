@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lwt.realestatemanager.screens.home.simulator.MonthlyPayment
+import com.lwt.realestatemanager.model.simulator.MonthlyPayment
 import com.lwt.realestatemanager.ui.theme.RealEstateManagerTheme
 
 @Preview(

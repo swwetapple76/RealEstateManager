@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.lwt.realestatemanager.R
-import com.lwt.realestatemanager.screens.home.simulator.LoanResult
+import com.lwt.realestatemanager.model.simulator.LoanResult
 import com.lwt.realestatemanager.screens.simulator.utils.isRuCurrLocale
 import com.lwt.realestatemanager.ui.theme.RealEstateManagerTheme
 

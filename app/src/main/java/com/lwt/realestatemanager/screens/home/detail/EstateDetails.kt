@@ -24,7 +24,6 @@ import com.google.android.libraries.maps.model.LatLng
 import com.lwt.realestatemanager.R
 import com.lwt.realestatemanager.model.Estate
 import com.lwt.realestatemanager.model.EstateStatus
-import com.lwt.realestatemanager.screens.commons.OutlinedText
 import com.lwt.realestatemanager.utils.ExtensionUtils.estateFormat
 import java.text.NumberFormat
 import java.util.*

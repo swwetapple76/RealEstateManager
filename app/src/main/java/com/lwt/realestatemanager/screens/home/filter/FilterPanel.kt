@@ -24,122 +24,152 @@ import com.lwt.realestatemanager.screens.home.HomeViewModel
 @ExperimentalAnimationApi
 @ExperimentalCoilApi
 @Composable
-fun EtateListFilter(top: Dp, viewmodel: HomeViewModel, closeFilterView: () -> (Unit)) {
-	Column(Modifier
-		.padding(top = top, start = 8.dp, end = 8.dp, bottom = 8.dp)
-		.fillMaxHeight()
-		.fillMaxWidth()
-		.verticalScroll(rememberScrollState())
-	) {
+fun EtateListFilter(top: Dp, viewModel: HomeViewModel, closeFilterView: () -> (Unit)) {
+    Column(
+        Modifier
+            .padding(top = top, start = 8.dp, end = 8.dp, bottom = 8.dp)
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+    ) {
 
-		// Remembers
+        // Remembers
 
-		var estateFrom by remember {
-			mutableStateOf(viewmodel.getFilterSetting().from,
-				policy = neverEqualPolicy())
-		}
+        var estateFrom by remember {
+            mutableStateOf(
+                viewModel.getFilterSetting().from,
+                policy = neverEqualPolicy()
+            )
+        }
 
-		var estateTo by remember {
-			mutableStateOf(viewmodel.getFilterSetting().to,
-				policy = neverEqualPolicy())
-		}
+        var estateTo by remember {
+            mutableStateOf(
+                viewModel.getFilterSetting().to,
+                policy = neverEqualPolicy()
+            )
+        }
 
-		var mapOfProps by remember {
-			mutableStateOf(viewmodel.getFilterSetting().mapOfProps,
-				policy = neverEqualPolicy())
-		}
+        var mapOfProps by remember {
+            mutableStateOf(
+                viewModel.getFilterSetting().mapOfProps,
+                policy = neverEqualPolicy()
+            )
+        }
 
-		var checkboxType by remember {
-			mutableStateOf(viewmodel.getFilterSetting().type,
-				policy = neverEqualPolicy())
-		}
-		var checkboxStatus by remember {
-			mutableStateOf(viewmodel.getFilterSetting().status,
-				policy = neverEqualPolicy())
-		}
+        var checkboxType by remember {
+            mutableStateOf(
+                viewModel.getFilterSetting().type,
+                policy = neverEqualPolicy()
+            )
+        }
+        var checkboxStatus by remember {
+            mutableStateOf(
+                viewModel.getFilterSetting().status,
+                policy = neverEqualPolicy()
+            )
+        }
 
 
-		// Buttons
+        // Buttons
 
-		Row(Modifier.fillMaxWidth())
-		{
-			Button(onClick = {
-				val copy = FilterSettings.Default.copy()
+        Row(Modifier.fillMaxWidth())
+        {
+            Button(
+                onClick = {
+                    val copy = FilterSettings.Default.copy()
 
-				// Reset map
-				mapOfProps = copy.mapOfProps
+                    // Reset map
+                    mapOfProps = copy.mapOfProps
 
-				// Reset Estates
-				estateTo = copy.to
-				estateFrom = copy.from
+                    // Reset Estates
+                    estateTo = copy.to
+                    estateFrom = copy.from
 
-				// Reset Enum Checkbox
-				checkboxType = copy.type
-				checkboxStatus = copy.status
+                    // Reset Enum Checkbox
+                    checkboxType = copy.type
+                    checkboxStatus = copy.status
 
-				viewmodel.setFilterSetting(copy)
-				closeFilterView()
-			},
-				Modifier
-					.weight(1.0f)) {
-				Text("Reset")
-			}
-			Spacer(Modifier.width(8.dp))
-			Button(onClick = {
-				viewmodel.setFilterSetting(FilterSettings(
-					to = estateTo,
-					from = estateFrom,
-					enabled = true,
-					type = checkboxType,
-					status = checkboxStatus,
-					mapOfProps = mapOfProps
-				))
-				closeFilterView()
-			},
-				Modifier
-					.weight(1.0f)) {
-				Text("Apply")
-			}
-		}
+                    viewModel.setFilterSetting(copy)
+                    closeFilterView()
+                },
+                Modifier
+                    .weight(1.0f)
+            ) {
+                Text("Reset")
+            }
+            Spacer(Modifier.width(8.dp))
+            Button(
+                onClick = {
+                    viewModel.setFilterSetting(
+                        FilterSettings(
+                            to = estateTo,
+                            from = estateFrom,
+                            enabled = true,
+                            type = checkboxType,
+                            status = checkboxStatus,
+                            mapOfProps = mapOfProps
+                        )
+                    )
+                    closeFilterView()
+                },
+                Modifier
+                    .weight(1.0f)
+            ) {
+                Text("Apply")
+            }
+        }
 
-		Row(Modifier.padding(top = 8.dp)) {
-			Checkbox(checked = checkboxType, onCheckedChange = { checkboxType = it })
-			Text(text = "Type",
-				fontWeight = FontWeight.Bold,
-				color = Color(0xffa0a0a0),
-				modifier = Modifier.padding(start = 8.dp))
-		}
-		OutlinedDropDown(currentSelected = estateFrom.type, onValueSelected = {
-			estateFrom.type = it
-			estateFrom = estateFrom
-		})
+        Row(Modifier.padding(top = 8.dp)) {
+            Checkbox(checked = checkboxType, onCheckedChange = { checkboxType = it })
+            Text(
+                text = "Type",
+                fontWeight = FontWeight.Bold,
+                color = Color(0xffa0a0a0),
+                modifier = Modifier.padding(start = 8.dp)
+            )
+        }
+        OutlinedDropDown(
+            currentSelected = estateFrom.type,
+            onValueSelected = {
+                estateFrom.type = it
+                estateFrom = estateFrom
+            }
+        )
 
-		Row(Modifier.padding(top = 8.dp)) {
-			Checkbox(checked = checkboxStatus, onCheckedChange = { checkboxStatus = it })
-			Text(text = "Status",
-				fontWeight = FontWeight.Bold,
-				color = Color(0xffa0a0a0),
-				modifier = Modifier.padding(start = 8.dp))
-		}
-		OutlinedDropDown(label = "Status", currentSelected = estateFrom.status, onValueSelected = {
-			estateFrom.status = it
-			estateFrom = estateFrom
-		})
+        Row(Modifier.padding(top = 8.dp)) {
+            Checkbox(checked = checkboxStatus, onCheckedChange = { checkboxStatus = it })
+            Text(
+                text = "Status",
+                fontWeight = FontWeight.Bold,
+                color = Color(0xffa0a0a0),
+                modifier = Modifier.padding(start = 8.dp)
+            )
+        }
+        OutlinedDropDown(label = "Status", currentSelected = estateFrom.status, onValueSelected = {
+            estateFrom.status = it
+            estateFrom = estateFrom
+        })
 
-		// -------------------
-		// Props Spawn
-		// -------------------
-		mapOfProps.keys.forEach { field ->
-			Row(Modifier.padding(top = 8.dp)) {
-				Checkbox(checked = mapOfProps[field] ?: false, onCheckedChange = { mapOfProps[field] = it; mapOfProps = mapOfProps })
-				Text(
-					text = field.getName(),
-					fontWeight = FontWeight.Bold,
-					color = Color(0xffa0a0a0),
-					modifier = Modifier.padding(start = 8.dp)
-				)
-			}
-			OutlinedFieldFromTo(propsContainer = field, from = estateFrom, to = estateTo, onValuesChanged = { from, to -> estateFrom = from; estateTo = to })
-		}
-	}
+        // -------------------
+        // Props Spawn
+        // -------------------
+        mapOfProps.keys.forEach { field ->
+            Row(Modifier.padding(top = 8.dp)) {
+                Checkbox(
+                    checked = mapOfProps[field] ?: false,
+                    onCheckedChange = { mapOfProps[field] = it; mapOfProps = mapOfProps })
+                Text(
+                    text = field.getName(),
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xffa0a0a0),
+                    modifier = Modifier.padding(start = 8.dp)
+                )
+            }
+            OutlinedFieldFromTo(
+                propsContainer = field,
+                from = estateFrom,
+                to = estateTo,
+                onValuesChanged = { from, to -> estateFrom = from; estateTo = to })
+        }
+    }
 }

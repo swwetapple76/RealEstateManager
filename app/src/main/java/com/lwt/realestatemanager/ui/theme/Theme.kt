@@ -6,38 +6,41 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
-	primary = primaryLight,
-	primaryVariant = primaryVariant,
-	secondary = accentuationColor
+    primary = primaryLight,
+    primaryVariant = primaryVariant,
+    secondary = accentuationColor
 )
 
 private val LightColorPalette = lightColors(
-	primary = primaryDark,
-	primaryVariant = primaryVariant,
-	secondary = accentuationColor
+    primary = primaryDark,
+    primaryVariant = primaryVariant,
+    secondary = accentuationColor
 
-	/* Other default colors to override
-	background = Color.White,
-	surface = Color.White,
-	onPrimary = Color.White,
-	onSecondary = Color.Black,
-	onBackground = Color.Black,
-	onSurface = Color.Black,
-	*/
+    /* Other default colors to override
+    background = Color.White,
+    surface = Color.White,
+    onPrimary = Color.White,
+    onSecondary = Color.Black,
+    onBackground = Color.Black,
+    onSurface = Color.Black,
+    */
 )
 
 @Composable
-fun RealEstateManagerTheme(darkTheme: Boolean = false /*TODO isSystemInDarkTheme()*/, content: @Composable () -> Unit) {
-	val colors = if (darkTheme) {
-		DarkColorPalette
-	} else {
-		LightColorPalette
-	}
+fun RealEstateManagerTheme(
+    darkTheme: Boolean = false /*TODO isSystemInDarkTheme()*/,
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
 
-	MaterialTheme(
-		colors = colors,
-		typography = Typography,
-		shapes = Shapes,
-		content = content
-	)
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
 }

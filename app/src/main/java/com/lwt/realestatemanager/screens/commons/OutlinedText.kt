@@ -1,4 +1,4 @@
-package com.lwt.realestatemanager.screens.commons
+package com.lwt.realestatemanager.screens.home.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.material.OutlinedTextField

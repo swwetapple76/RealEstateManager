@@ -7,11 +7,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 class NetworkStatusViewModel(
-	networkStatusTracker: NetworkStatusTracker,
+    networkStatusTracker: NetworkStatusTracker,
 ) : ViewModel() {
-	val networkState =
-		networkStatusTracker.networkStatus.map(
-			onUnavailable = { NetworkStatus.Unavailable },
-			onAvailable = { NetworkStatus.Available },
-		).asLiveData(Dispatchers.IO)
+    val networkState =
+        networkStatusTracker.networkStatus.map(
+            onUnavailable = { NetworkStatus.Unavailable },
+            onAvailable = { NetworkStatus.Available },
+        ).asLiveData(Dispatchers.IO)
 }

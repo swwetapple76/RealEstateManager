@@ -53,7 +53,7 @@ fun OutlinedFieldFromTo(
 			}
 
 			// INT
-
+			// ------------------------------
 			propsContainer.intProps != null -> {
 				OutlinedTextField(
 					keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -92,9 +92,9 @@ fun OutlinedFieldFromTo(
 					}
 				)
 			}
-
+			// ------------------------------
 			// STRING
-
+			// ------------------------------
 			propsContainer.stringProps != null -> {
 				OutlinedTextField(
 					value = propsContainer.stringProps?.get(from).toString(),

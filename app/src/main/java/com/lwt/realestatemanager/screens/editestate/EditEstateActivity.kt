@@ -24,7 +24,6 @@ import coil.annotation.ExperimentalCoilApi
 import com.lwt.realestatemanager.R
 import com.lwt.realestatemanager.model.Estate
 import com.lwt.realestatemanager.screens.commons.OutlinedDropDown
-import com.lwt.realestatemanager.screens.commons.OutlinedTextFieldLazy
 import com.lwt.realestatemanager.screens.commons.TopBarReturn
 import com.lwt.realestatemanager.ui.theme.RealEstateManagerTheme
 import java.text.NumberFormat

@@ -17,17 +17,16 @@
     <string name="title_activity_converter">ConverterActivity</string>
     <string name="content_description_return_to_home_screen">Return to Home screen</string>
     <string name="title_activity_editestate">EditEstateActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
     <string name="point_of_interest">Point of Interest</string>
     <string name="agent">Agent</string>
     <string name="monthly.">Monthly.</string>
     <string name="district">District</string>
-    <string name="title_activity_main">LoginActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 
     //simulator
     <string name="title_activity_simulator">SimulatorActivity</string>
-    <string name="content_description_icon">Icon</string>
-    <string name="bundle_is_annuity_loan_type">isAnnuityLoanType</string>
+     <string name="content_description_icon" >Icon</string>
+    <string name="bundle_is_annuity_loan_type" >isAnnuityLoanType</string>
 
     <string name="title_version">Version:</string>
     <string name="title_info">Info</string>
@@ -67,6 +66,7 @@
     <string name="hint_period">Period (months)</string>
     <string name="hint_grace_period">Grace Period (months)</string>
     <string name="hint_initial_fee">Initial Fee (%)</string>
+
 
 
     <!-- Result Layout-->
