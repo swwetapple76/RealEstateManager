@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
 
-        <provider/>
+        <provider
             android:name=".provider.EstateContentProvider"
             android:authorities="com.lwt.realestatemanager.provider"
             android:enabled="true"
