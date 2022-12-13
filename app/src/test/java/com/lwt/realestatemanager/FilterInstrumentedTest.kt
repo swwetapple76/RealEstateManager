@@ -15,7 +15,7 @@ import java.util.*
 import kotlin.random.Random
 
 @RunWith(JUnit4::class)
-class FilterInstrumentedTest {/
+class FilterInstrumentedTest {
 	@Test
 	fun testFilterPriveAndSurface() {
 		repeat(1000)

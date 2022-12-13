@@ -18,7 +18,7 @@ import org.junit.runner.RunWith
 import kotlin.random.Random.Default.nextLong
 
 @RunWith(AndroidJUnit4::class)
-class EstateContentProviderInstrumentedTest {/
+class EstateContentProviderInstrumentedTest {
 	companion object {
 		private const val description: String = "Lorem Ipsum Blabla"
 		private const val latitude: Double = 5.0
