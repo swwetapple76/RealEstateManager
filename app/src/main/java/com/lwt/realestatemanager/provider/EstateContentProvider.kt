@@ -11,7 +11,7 @@ import com.lwt.realestatemanager.repository.database.EstateDatabase
 
 class EstateContentProvider : ContentProvider() {
 
-	companion object {
+	companion object {/
 		// FOR DATA
 		const val AUTHORITY = "com.lwt.realestatemanager.provider"
 		val TABLE_NAME = Estate::class.java.simpleName

@@ -12,10 +12,10 @@ interface EstateDao {
 	@Query("SELECT * FROM Estate")
 	fun getAllCursor(): Cursor
 
-	@Query("SELECT * FROM Estate WHERE Estate.uid = :uid")
+	@Query("SELECT * FROM Estate WHERE Estate.uid = :uid")/
 	fun getCursor(uid: Long): Cursor
 
-	@Query("SELECT * FROM Estate WHERE Estate.uid = :uid")
+	@Query("SELECT * FROM Estate WHERE Estate.uid = :uid")/
 	fun get(uid: Long): Estate
 
 	@Insert
