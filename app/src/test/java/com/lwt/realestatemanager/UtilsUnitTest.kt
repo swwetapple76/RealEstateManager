@@ -8,7 +8,7 @@ import java.util.*
 
 class UtilsUnitTest {
 	@Test
-	fun testMoneyConvert() {
+	fun testMoneyConvert() {/
 
 		// Euro to Dollars
 

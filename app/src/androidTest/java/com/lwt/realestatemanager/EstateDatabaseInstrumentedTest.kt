@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4::class)
-class EstateDatabaseInstrumentedTest {
+class EstateDatabaseInstrumentedTest {/
 	private var db: EstateDatabase? = null
 
 	@Before
