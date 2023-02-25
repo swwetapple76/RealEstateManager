@@ -93,13 +93,12 @@ fun HomeTopBar(
                         if (result.resultCode == Activity.RESULT_OK) {
                             result.data?.getParcelableExtra<Estate>("estateReturn")?.let {
                                 viewModel.addEstate(it)
-                                Log.d("tagii", "*****")
                                 viewModel.setSelectedEstate(it.uid)
                                 NotificationHelper.sendSimpleNotification(
                                     context = context,
                                     title = "Real Estate Manager",
                                     message = "Succefully added new Estate",
-                                    intent = Intent(context, HomeActivity::class.java),
+                                    intent = Intent(context, EditEstateActivity::class.java),
                                     reqCode = 10001
                                 )
                             }

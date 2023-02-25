@@ -20,8 +20,11 @@ class ConverterActivity : ComponentActivity() {
 		setContent {
 			RealEstateManagerTheme {
 				TopBarReturn(this, "Converter Tools") {
-					Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-						Text("Dollar / Euro", style = MaterialTheme.typography.h3, textAlign = TextAlign.Center)
+					Column(Modifier.fillMaxSize(),
+						verticalArrangement = Arrangement.Center,
+						horizontalAlignment = Alignment.CenterHorizontally) {
+						Text("Dollar / Euro", style = MaterialTheme.typography.h3,
+							textAlign = TextAlign.Center)
 						val configuration = LocalConfiguration.current
 						if (configuration.screenWidthDp > 450)
 							Row(modifier = Modifier.padding(8.dp)) {

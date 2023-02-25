@@ -113,7 +113,7 @@ class HomeViewModel : ViewModel() {
                         FilterUtils.filterList(estates, settings)
                     }
                 }
-            Log.d("tagii", "list: ${list?.size}")
+
             estateLists = list
             estateStatus.postValue(
                 if (list != null) {
@@ -135,7 +135,7 @@ class HomeViewModel : ViewModel() {
             thread() {
                 EstateRepository.db?.estateDao()?.insert(estate)
                 setSelectedEstate(estate.uid)
-                updateEstateListFromDB()
+                getEstatesFromDd()
             }
         }
     }
@@ -144,7 +144,8 @@ class HomeViewModel : ViewModel() {
     fun addEstates(estateList: List<Estate>) {
         thread {
             EstateRepository.db?.estateDao()?.insert(*(estateList.toTypedArray()))
-            getEstatesFromDd()
+            updateEstateListFromDB()
+
         }
     }
 
@@ -157,7 +158,7 @@ class HomeViewModel : ViewModel() {
             estate.longitude = lng
             thread() {
                 EstateRepository.db?.estateDao()?.update(estate)
-                updateEstateListFromDB()
+                getEstatesFromDd()
             }
         }
     }

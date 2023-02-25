@@ -9,6 +9,5 @@ object ExtensionUtils {
 	fun Date.estateFormat(): String {
 		return SimpleDateFormat("dd/MM/yyyy").format(this)
 	}
-
 	fun Double.truncat(digits: Int) = "%.${digits}f".format(this)
 }

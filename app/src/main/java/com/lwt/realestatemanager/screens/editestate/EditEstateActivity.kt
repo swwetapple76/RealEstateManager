@@ -52,8 +52,8 @@ class EditEstateActivity : ComponentActivity() {
 
                         FloatingActionButton(
                             modifier = Modifier
-								.align(Alignment.BottomEnd)
-								.padding(8.dp),
+                                .align(Alignment.BottomEnd)
+                                .padding(8.dp),
                             onClick = {
                                 val result = Intent().putExtra("estateReturn",
                                     estate)
@@ -75,6 +75,7 @@ class EditEstateActivity : ComponentActivity() {
 private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
     val configuration = LocalConfiguration.current
     val small = configuration.screenWidthDp <= 450
+
 
     Column(Modifier
         .padding(16.dp)
@@ -120,13 +121,13 @@ private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
                 .weight(1.0f)
                 .fillMaxWidth()
                 .padding(8.dp)) {
+
                 OutlinedTextFieldLazy(leadingIcon = Icons.Default.SettingsOverscan,
                     title = stringResource(R.string.surface),
-                    value = estate.surface.toString(),
+                    value = estate.surface.toEditString(),
                     keyboardType = KeyboardType.Number) {
                     val new = it.toIntOrNull()
-                    if (new != null)
-                        estate.surface = new
+                    estate.surface = new ?: -1
                     onEstateChange(estate)
                 }
             }
@@ -151,11 +152,10 @@ private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
                 .padding(8.dp)) {
                 OutlinedTextFieldLazy(leadingIcon = Icons.Default.Home,
                     title = stringResource(R.string.rooms),
-                    value = estate.rooms.toString(),
+                    value = estate.rooms.toEditString(),
                     keyboardType = KeyboardType.Number) {
                     val new = it.toIntOrNull()
-                    if (new != null)
-                        estate.rooms = new
+                    estate.rooms = new ?: -1
                     onEstateChange(estate)
                 }
             }
@@ -166,11 +166,10 @@ private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
                 .padding(8.dp)) {
                 OutlinedTextFieldLazy(leadingIcon = Icons.Default.BedroomParent,
                     title = stringResource(R.string.bedrooms),
-                    value = estate.bedrooms.toString(),
+                    value = estate.bedrooms.toEditString(),
                     keyboardType = KeyboardType.Number) {
                     val new = it.toIntOrNull()
-                    if (new != null)
-                        estate.bedrooms = new
+                    estate.bedrooms = new ?: -1
                     onEstateChange(estate)
                 }
             }
@@ -180,11 +179,10 @@ private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
                 .padding(8.dp)) {
                 OutlinedTextFieldLazy(leadingIcon = Icons.Default.Bathtub,
                     title = stringResource(R.string.bathrooms),
-                    value = estate.bathrooms.toString(),
+                    value = estate.bathrooms.toEditString(),
                     keyboardType = KeyboardType.Number) {
                     val new = it.toIntOrNull()
-                    if (new != null)
-                        estate.bathrooms = new
+                    estate.bathrooms = new ?: -1
                     onEstateChange(estate)
                 }
             }
@@ -234,21 +232,29 @@ private fun EditEstateMain(estate: Estate, onEstateChange: (Estate) -> Unit) {
             OutlinedTextFieldLazy(
                 leadingIcon = Icons.Default.Paid,
                 title = stringResource(R.string.price),
-                value = estate.price.toString(),
+                value = estate.price.toEditString(),
                 keyboardType = KeyboardType.Number) {
                 val new = it.toIntOrNull()
-                if (new != null)
-                    estate.price = new
+                estate.price = new ?: -1
                 format.format(estate.price)
                 onEstateChange(estate)
 
             }
 
 
+
+
         }
 
+
     }
+
 }
+@Composable
+private fun Int.toEditString() = takeIf { it > -1 }?.toString() ?: ""
+
+
+
 
 
 

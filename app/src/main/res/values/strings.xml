@@ -4,7 +4,7 @@
     <string name="title_activity_photo_viewer">PhotoViewerActivity</string>
     <string name="media">Media</string>
     <string name="description">Description</string>
-    <string name="surface">Surface</string>
+    <string name="surface">Surface m2</string>
     <string name="rooms">Rooms</string>
     <string name="bathrooms">Bathrooms</string>
     <string name="bedrooms">Bedrooms</string>
