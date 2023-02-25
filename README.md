@@ -9,14 +9,14 @@ Real Estate Manager est une application permettant aux agents immobiliers de pou
 - Google Map
 - SQLite Room
 - Architecture MVVM
-- RecyclerView
 - Material Design
 - Retrofit
-- RX Java
-- Glide
-- ViewBinding
 - Format Tablettes
 - Tests Unitaires
 - Tests d'intégration
+- Kotlin 
+- Jetpack compose
+
+
 
 
