@@ -1,5 +1,22 @@
-P9
+# RealEstateManager
 
-Notable dependancy : Kotlin, Compose, Room, Retrofit2, Gson, Coil, Material, Accompanist, LifeCycle/LiveData
+Real Estate Manager est une application permettant aux agents immobiliers de pouvoir consulter ou créer un bien immobilier à la vente depuis leur mobile ou tablette. Cette application est utilisable hors ligne grâce à sa base de données SQLite qui permet de stocker les données dans la mémoire du téléphone.
 
-Also using google service : Geocoder API, Static Map API and the Android Google Map SDK
+**Compétences utilisées**
+
+- Geocoding API 
+- Géolocalisation
+- Google Map
+- SQLite Room
+- Architecture MVVM
+- RecyclerView
+- Material Design
+- Retrofit
+- RX Java
+- Glide
+- ViewBinding
+- Format Tablettes
+- Tests Unitaires
+- Tests d'intégration
+
+
